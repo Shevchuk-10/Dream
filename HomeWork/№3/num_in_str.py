@@ -10,7 +10,7 @@ def numbers_in_string(input_text):
     return total_sum
 
 
-text = "Есть например 56 Айфона и 6 симок."
+text = "Есть например 56 Айфонов и 6 флешок."
 result = numbers_in_string(text)  # Вычисление суммы чисел
 print(result)
 
