@@ -3,7 +3,7 @@ def long_words(text):
     words = text.split()
 
     # Сумма длинны всех всех слов
-    total_lengh = sum(len(word) for word in words)
+    total_length = sum(len(word) for word in words)
 
     # Вычисление Средний длинны слов
     num_words = len(words)
@@ -11,7 +11,7 @@ def long_words(text):
     if num_words == 0:# Проверка если текст пустой
         return 0
     else:
-        avarage_lengh = total_lengh / num_words
+        avarage_lengh = total_length / num_words
         return avarage_lengh
 
 

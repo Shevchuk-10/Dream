@@ -3,24 +3,7 @@ def letter(text):
     result = []
 
     for word in words:
-        word = word.lower()
-        if word[0] == word[-1]:
-            result.append(word)
+        if word[0].lower() == word[-1].lower():  # Порівнюємо першу і останню букву в нижньому регістрі
+            result.append(word.lower())  # Додаємо слово в нижньому регістрі
 
     return result
-
-text = 'Level apple radar chery civic'
-print(letter(text))
-
-
-#Done .
-
-
-
-
-
-
-
-
-
-
