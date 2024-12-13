@@ -1,0 +1,17 @@
+name: Run Tests in Selected Directory
+
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install deps
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+
+
+
+
