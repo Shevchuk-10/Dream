@@ -38,18 +38,23 @@ jobs:
       # Крок 3: Встановлення залежностей
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Встановлюємо залежності з requirements.txt
+          if [ -f requirements.txt ]; then
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+          else
+            echo "No requirements.txt file found"
+          fi
 
-      # Крок 4: Перевірка вмісту вибраної директорії
+      # Крок 4: Перевірка вмісту вибраної директорії в Tests
       - name: List files in selected directory
-        run: ls -la HomeWork/${{ github.event.inputs.directory }}
+        run: ls -la Tests/${{ github.event.inputs.directory }}
 
       # Крок 5: Перехід в обрану директорію та запуск тестів
       - name: Run tests in selected directory
         run: |
-          # Переходимо в вибрану директорію
-          cd HomeWork/${{ github.event.inputs.directory }}  # Вибір директорії на основі input
+          # Переходимо в вибрану директорію в Tests
+          cd Tests/${{ github.event.inputs.directory }}
           
           # Запуск тестів з використанням unittest
-          python -m unittest discover -s . -p "test_*.py"  # Запуск всіх тестів, що починаються з "test_"
+          python -m unittest discover -s . -p "test_*.py"
+          echo "Tests have been completed"
