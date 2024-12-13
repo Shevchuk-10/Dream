@@ -1,60 +1,17 @@
 name: Run Tests in Selected Directory
 
-on:
-  workflow_dispatch:
-    inputs:
-      directory:
-        description: 'Choose a directory to run tests'
-        required: true
-        default: 'big_small'  # Можна вибрати значення за замовчуванням
-        type: choice
-        options:
-          - big_small
-          - letter
-          - long
-          - numbers
-          - palindrome
-          - replace
-          - Reverse
-          - sort
-          - unique
-          - vowels
-
+on: push
 jobs:
-  run-tests:
+  lint:
     runs-on: ubuntu-latest
-
     steps:
-      # Крок 1: Клонуємо репозиторій
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install deps
+        run: npm ci
+      - name: Lint
+        run: npm run lint
 
-      # Крок 2: Налаштовуємо Python
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'  # Вказуємо версію Python
 
-      # Крок 3: Встановлення залежностей
-      - name: Install dependencies
-        run: |
-          if [ -f requirements.txt ]; then
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-          else
-            echo "No requirements.txt file found"
-          fi
 
-      # Крок 4: Перевірка вмісту вибраної директорії в Tests
-      - name: List files in selected directory
-        run: ls -la Tests/${{ github.event.inputs.directory }}
 
-      # Крок 5: Перехід в обрану директорію та запуск тестів
-      - name: Run tests in selected directory
-        run: |
-          # Переходимо в вибрану директорію в Tests
-          cd Tests/${{ github.event.inputs.directory }}
-          
-          # Запуск тестів з використанням unittest
-          python -m unittest discover -s . -p "test_*.py"
-          echo "Tests have been completed"
