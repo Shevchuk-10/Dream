@@ -45,8 +45,8 @@ class TestPal(unittest.TestCase):
         self.assertEqual(palindromes_result,expected_result)
 
 
-
-
+if __name__ == '__main__':
+    unittest.main()
 
 
 

@@ -1,19 +1,12 @@
+import re
+
+
 def numbers_in_string(input_text):
-    words = input_text.split()  # Разбивка текста на части по пробелам
-
-    total_sum = 0
-
-    for word in words:
-        if word.isdigit():  # Проверка, является ли слово числом
-            total_sum += int(word)  # Прибавление числа к общей сумме
+    numbers = re.findall(r'\d+', input_text)
+    total_sum = sum(int(num) for num in numbers)
 
     return total_sum
 
 
-text = "Есть например 56 Айфонов и 6 флешок."
-result = numbers_in_string(text)  # Вычисление суммы чисел
-print(result)
-
-
-
-
+text = "У меня есть 2 MBW и 16 Мотоцыклов"
+result = numbers_in_string(text)

@@ -1,19 +1,10 @@
 def count_vowels(text):
-    vowels = 'aeiouAEIOU'
+    vowels = 'aeiouAEIOU'  # голосні букви (великі та малі)
     counter = 0
 
-    for index in text:
-        if index in vowels:
+    # Перебираємо кожен символ в тексті
+    for char in text:
+        if char in vowels:  # Перевірка чи символ є голосною
             counter += 1
 
     return counter
-
-user_input = input("Enter some: ")
-print("Кол-во гласных букв:", count_vowels(user_input))
-
-
-
-
-
-
-

@@ -2,12 +2,12 @@ import re
 
 
 def sort_words(text):
-    words = re.findall(r'\b\w+\b', text)
+    # Видалити всі непотрібні символи (числа, знаки пунктуації)
+    words = re.findall(r'[a-zA-Z]+', text.lower())  # Це збере лише літери
+    # Сортуємо слова в алфавітному порядку
     sorted_words = sorted(words)
+    # Повертаємо відсортовані слова як один рядок
     return ' '.join(sorted_words)
 
-text = 'Again some text for example. Hi , my name is Lux'
-sort_text = sort_words(text)
-print('Отсортированый текст: ', sort_text)
 
-# И тут я еще больше начал понимать :)
+
