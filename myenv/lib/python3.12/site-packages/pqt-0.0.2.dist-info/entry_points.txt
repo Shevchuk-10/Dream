@@ -1,0 +1,4 @@
+[console_scripts]
+pqt.count = pqt.count:count
+pqt.head = pqt.summary:head
+pqt.tail = pqt.summary:tail

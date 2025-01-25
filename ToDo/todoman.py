@@ -1,13 +1,10 @@
 from storage import load_todos, save_todos
 
 def show_all_todos():
-    todos = load_todos()
+    todos = load_todos()  # Отримуємо завдання
     if not todos:
-        print("Список заданий пустой.")
-        return
-    for index, todo in enumerate(todos, start=1):
-        status = "✅" if todo["status"] else "❌"
-        print(f"{index}. {todo['title']} - {status}\n   {todo['body']}")
+        return []  # Якщо завдань немає, повертаємо порожній список
+    return todos  # Повертаємо список завдань
 
 def create_todo(title, body):
     todos = load_todos()

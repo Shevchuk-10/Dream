@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: pqt
+Version: 0.0.2
+Summary: Tools for quickly analyzing parquet content
+Home-page: https://github.com/chriskamphuis/parquet-tools
+Author: Chris Kamphuis
+Author-email: mail@chriskamphuis.com
+License: Apache License
+License-File: LICENSE
+Requires-Dist: duckdb
+
