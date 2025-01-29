@@ -154,6 +154,6 @@ edit_button.grid(row=5, column=1, pady=10, sticky="w")
 
 # Оновлення списку
 refresh_todos()
-print('helo')
+
 # Запуск програми
 root.mainloop()
